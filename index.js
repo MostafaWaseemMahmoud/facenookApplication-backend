@@ -5,15 +5,8 @@ const Post = require("./models/post.model");
 const app = express();
 const PORT = 3000 || env.PORT;
 const cors = require("cors");
-
+app.use(cors);
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:4200",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
 
 app.get("/", (req, res) => {
   res.status(200).json("Hello From Data Database");
