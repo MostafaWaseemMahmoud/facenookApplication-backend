@@ -7,13 +7,10 @@ const PORT = 3000 || env.PORT;
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors()); // Middleware to enable CORS
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack); // Log error stack to console
-  res.status(500).send("Something went wrong!"); // Send generic error response
-});
+const corsOptions = {
+  origin: "http://localhost:4200", // Allow requests only from this origin
+  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
+};
 
 app.get("/", (req, res) => {
   res.status(200).json("Hello From Data Database");
