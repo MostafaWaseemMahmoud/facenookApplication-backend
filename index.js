@@ -7,12 +7,12 @@ const PORT = 3000 || env.PORT;
 const cors = require("cors");
 
 app.use(express.json());
-const corsOptions = {
-  origin: "http://localhost:4200", // Allow requests only from this origin
-  optionsSuccessStatus: 200, // Some legacy browsers choke on 204
-};
-
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "http://localhost:4200",
+    methods: ["GET", "POST"],
+  })
+);
 
 app.get("/", (req, res) => {
   res.status(200).json("Hello From Data Database");
