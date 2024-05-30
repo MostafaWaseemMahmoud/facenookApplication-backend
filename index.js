@@ -4,10 +4,10 @@ const User = require("./models/user.model");
 const Post = require("./models/post.model");
 const app = express();
 const PORT = 3000 || env.PORT;
-const cors = require("cors");
-app.use(cors);
+const cors = require("cors"); // Import the cors package
 app.use(express.json());
-
+app.use(express.json());
+app.use(cors()); // Use cors middleware
 app.get("/", (req, res) => {
   res.status(200).json("Hello From Data Database");
 });
