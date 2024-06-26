@@ -18,11 +18,9 @@ const UserSchema = mongoos.Schema(
       required: [true, "please Inter User Password"],
     },
 
-    image: {
-      type: String,
-      required: false,
-      default:
-        "https://i.pinimg.com/564x/00/96/9c/00969c9056bbfc6719b1d5eff4ce1992.jpg",
+    phoneNumber: {
+      type: Number,
+      required: [true, "Please Inter User Number"],
     },
   },
 
